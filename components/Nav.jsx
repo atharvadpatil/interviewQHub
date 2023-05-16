@@ -26,10 +26,10 @@ export default function Nav() {
     <nav className="flex-between w-full mb-16 pt-3">
       <Link href='/' className="flex gap-2 flex-center">
         <Image
-          src='/assets/images/logo.svg'
+          src='/assets/icons/interview.gif'
           alt='logo'
-          width={30}
-          height={30}
+          width={50}
+          height={50}
           className='object-contain'
         />
         <p className='logo_text'>InterviewQHub</p>
