@@ -11,15 +11,6 @@ export default function MyProfile() {
     const router = useRouter();
     const { data: session, status } = useSession();
 
-    if (status === "loading") {
-        return <div></div>
-    }
-
-    if (status === 'unauthenticated') {
-        router.push('/');
-        return <div></div>
-    }
-
     const [myPosts, setMyPosts] = useState([]);
 
     useEffect(() => {
@@ -56,6 +47,15 @@ export default function MyProfile() {
             }
         }
     };
+
+    if (status === "loading") {
+        return <div></div>
+    }
+
+    if (status === 'unauthenticated') {
+        router.push('/');
+        return <div></div>
+    }
 
     return (
         <Profile

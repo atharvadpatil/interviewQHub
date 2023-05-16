@@ -11,16 +11,6 @@ export default function CreateQue() {
     const router = useRouter();
     const { data: session, status } = useSession();
 
-    if (status === "loading") {
-        return <div></div>
-    }
-
-    if (status === 'unauthenticated') {
-        router.push('/');
-        return <div></div>
-    }
-
-
     const [submitting, setIsSubmitting] = useState(false);
     const [post, setPost] = useState({
         que: '',
@@ -49,6 +39,15 @@ export default function CreateQue() {
         } finally {
             setIsSubmitting(false);
         }
+    }
+
+    if (status === "loading") {
+        return <div></div>
+    }
+
+    if (status === 'unauthenticated') {
+        router.push('/');
+        return <div></div>
     }
 
     return (
