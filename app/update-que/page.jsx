@@ -2,12 +2,25 @@
 
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useSession } from "next-auth/react";
+
 
 import Form from "@components/Form";
 
 
 export default function EditQue() {
     const router = useRouter();
+
+    const { status } = useSession();
+
+    if (status === "loading") {
+      return <div></div>
+  }
+
+  if (status === 'unauthenticated') {
+      router.push('/');
+      return <div></div>
+  }
 
     const searchParams = useSearchParams();
     const queId = searchParams.get("id");
